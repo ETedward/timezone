@@ -14,11 +14,6 @@ import plotly.offline as offline
 print(cl2)
 print(cl3)
 
-#cl1 = ['UTC-11','UTC-10','UTC-8','UTC-7','UTC-6','UTC-5','UTC-4','UTC-3','UTC-2','UTC-1','UTC','UTC+1','UTC+2','UTC+3',
-#      'UTC+4','UTC+5','UTC+6','UTC+7','UTC+8','UTC+9','UTC+10','UTC+11']
-
-#cl1 = ['-11','-10','-8','-7','-6','-5','-4','-3','-2','-1','UTC','+1','+2','+3',
-#       '+4','UTC+5','UTC+6','UTC+7','UTC+8','UTC+9','UTC+10','UTC+11']
 cl1 = ['-11','-10','-8','-7','-6','-5','-4','-3','-2','-1','0','1','2','3','4','5','6','7','8','9','10','11']
 
 trace1 = go.Bar(
@@ -44,9 +39,11 @@ data = [trace1, trace2]
 
 fig = go.Figure(
     data = data,
-    layout = layout
+    layout = layout,
+)
+
+fig.layout.update(
+    xaxis_type='category'
 )
 
 offline.plot(fig, filename='group-bar.html')
-
-
